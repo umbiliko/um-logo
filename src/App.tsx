@@ -1,19 +1,19 @@
 import * as React from 'react';
 import './App.css';
-
+import Logo from './Logo';
 import logo from './logo.svg';
 
 class App extends React.Component {
   public render() {
+    const radio = Math.floor(200 / 2);
+
     return (
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
+        <Logo center={{ x: radio, y: radio, z: 0 }} radio={radio} split={10} />
       </div>
     );
   }
