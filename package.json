@@ -1,0 +1,33 @@
+{
+  "name": "um-logo",
+  "version": "0.1.0",
+  "description": "Umbiliko logo library",
+  "main": "lib/index.js",
+  "private": true,
+  "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts-ts": "3.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
+  },
+  "devDependencies": {
+    "@types/jest": "^23.3.5",
+    "@types/node": "^10.11.7",
+    "@types/react": "^16.4.16",
+    "@types/react-dom": "^16.0.9",
+    "typescript": "^3.1.2",
+    "@storybook/react": "^3.4.11",
+    "@storybook/addon-actions": "^3.4.11",
+    "@storybook/addon-links": "^3.4.11",
+    "@storybook/addons": "^3.4.11",
+    "babel-core": "^6.26.3",
+    "babel-runtime": "^6.26.0"
+  }
+}
