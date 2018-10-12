@@ -5,7 +5,7 @@ import angle from './utils/angle';
 import circlePlot from './utils/circlePlot';
 import longArc from './utils/longArc';
 import plot from './utils/plot';
-import rotateMatrix from './utils/rotateMatrix';
+import rotate from './utils/rotate';
 import rotateX from './utils/rotateX';
 import rotateY from './utils/rotateY';
 import rotateZ from './utils/rotateZ';
@@ -58,6 +58,8 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
     }
 
     public componentDidMount() {
+        this.rotate(0.4, 0.5, 0.2);
+        
         if (this.ctx) {
             this.ctx.clearRect(0, 0, this.ctx.canvas.width, this.ctx.canvas.height);
             this.paint(this.ctx);
@@ -166,7 +168,20 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
                 z: ((q >> 1) & 2) - 1
             };
 
-            const m = rotateMatrix(matrix, v, h, d);
+            const n: IMatrix = {
+                x: plot(matrix.x, v.x),
+                y: plot(matrix.y, v.y),
+                z: plot(matrix.z, v.z)
+            };
+
+            const cos = Math.sqrt(2) / 2;
+            const sin = cos * v.x * v.y * v.z;
+            
+            const m = { 
+                x: translate(plot(rotate(n.x, n.y, sin, cos), d / cos), plot(n.x, h)),
+                y: translate(plot(rotate(n.y, n.z, sin, cos), d / cos), plot(n.y, h)),
+                z: translate(plot(rotate(n.z, n.x, sin, cos), d / cos), plot(n.z, h))
+            };
 
             if (m.x.z < 0 && m.y.z < 0 && m.z.z < 0) {
                 continue;
@@ -194,14 +209,10 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
 
             ctx.fillStyle = gradient;
 
-            const x = plot(matrix.x, v.x);
-            const y = plot(matrix.y, v.y);
-            const z = plot(matrix.z, v.z);
-
             const c: IMatrix = {
-                x: translate(center, plot(x, d)),
-                y: translate(center, plot(y, d)),
-                z: translate(center, plot(z, d))
+                x: translate(center, plot(n.x, d)),
+                y: translate(center, plot(n.y, d)),
+                z: translate(center, plot(n.z, d))
             };
 
             const phi = { x: mhu, y: mhu, z: mhu };
@@ -212,17 +223,17 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
             };
 
             const p = {
-                x: translate(center, matrix.x),
-                y: translate(center, matrix.y),
-                z: translate(center, matrix.z)
+                x: translate(center, m.x),
+                y: translate(center, m.y),
+                z: translate(center, m.z)
             };
 
             if (m.x.z > 0 && m.y.z > 0 && m.z.z > 0) {
                 ctx.beginPath();
                 ctx.moveTo(p.y.x, p.y.y);
-                longArc(ctx, c.x, p.y, h, phi.x, rho.x, y, z);
-                longArc(ctx, c.y, p.z, h, phi.y, rho.y, z, x);
-                longArc(ctx, c.z, p.x, h, phi.z, rho.z, x, y);
+                longArc(ctx, c.x, p.y, h, phi.x, rho.x, n.y, n.z);
+                longArc(ctx, c.y, p.z, h, phi.y, rho.y, n.z, n.x);
+                longArc(ctx, c.z, p.x, h, phi.z, rho.z, n.x, n.y);
                 ctx.closePath();
                 ctx.fill();
             }
@@ -244,8 +255,8 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
                     rho.y = Math.atan(-m.z.z / m.x.z);
                     phi.z = Math.atan(-m.x.z / m.y.z);
 
-                    pxy = translate(c.y, splot(rho.y, h, z, x));
-                    pxz = translate(c.z, splot(phi.z, h, x, y));
+                    pxy = translate(c.y, splot(rho.y, h, n.z, n.x));
+                    pxz = translate(c.z, splot(phi.z, h, n.x, n.y));
 
                     axz = angle(center, pxz);
                     axy = angle(center, pxy);
@@ -255,8 +266,8 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
                     phi.x = Math.atan(-m.y.z / m.z.z);
                     rho.z = Math.atan(-m.x.z / m.y.z);
 
-                    pyx = translate(c.x, splot(phi.x, h, y, z));
-                    pyz = translate(c.z, splot(rho.z, h, x, y));
+                    pyx = translate(c.x, splot(phi.x, h, n.y, n.z));
+                    pyz = translate(c.z, splot(rho.z, h, n.x, n.y));
 
                     ayx = angle(center, pyx);
                     ayz = angle(center, pyz);
@@ -266,8 +277,8 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
                     rho.x = Math.atan(-m.y.z / m.z.z);
                     phi.y = Math.atan(-m.z.z / m.x.z);
 
-                    pzx = translate(c.x, splot(rho.x, h, y, z));
-                    pzy = translate(c.y, splot(phi.y, h, z, x));
+                    pzx = translate(c.x, splot(rho.x, h, n.y, n.z));
+                    pzy = translate(c.y, splot(phi.y, h, n.z, n.x));
 
                     azx = angle(center, pzx);
                     azy = angle(center, pzy);
@@ -276,51 +287,51 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
                 if (m.x.z > 0 && m.y.z > 0) {
                     ctx.moveTo(pzx.x, pzx.y);
                     ctx.beginPath();
-                    longArc(ctx, c.y, pzy, h, phi.y, rho.y, z, x);
-                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, x, y);
-                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, y, z);
+                    longArc(ctx, c.y, pzy, h, phi.y, rho.y, n.z, n.x);
+                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, n.x, n.y);
+                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, n.y, n.z);
                     smallArc(ctx, center, pzx, r, azx, azy);
                     ctx.closePath();
                     ctx.fill();
                 } else if (m.y.z > 0 && m.z.z > 0) {
                     ctx.moveTo(pxz.x, pxz.y);
                     ctx.beginPath();
-                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, x, y);
-                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, y, z);
-                    longArc(ctx, c.y, pzx, h, phi.y, rho.y, z, x);
+                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, n.x, n.y);
+                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, n.y, n.z);
+                    longArc(ctx, c.y, pzx, h, phi.y, rho.y, n.z, n.x);
                     smallArc(ctx, center, pxy, r, axy, axz);
                     ctx.closePath();
                     ctx.fill();
                 } else if (m.z.z > 0 && m.x.z > 0) {
                     ctx.moveTo(pyx.x, pyx.y);
                     ctx.beginPath();
-                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, y, z);
-                    longArc(ctx, c.y, pzx, h, phi.y, rho.y, z, x);
-                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, x, y);
+                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, n.y, n.z);
+                    longArc(ctx, c.y, pzx, h, phi.y, rho.y, n.z, n.x);
+                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, n.x, n.y);
                     smallArc(ctx, center, pyz, r, ayz, ayx);
                     ctx.closePath();
                     ctx.fill();
                 } else if (m.x.z > 0) {
                     ctx.moveTo(pzy.x, pzy.y);
                     ctx.beginPath();
-                    longArc(ctx, c.y, pzy, h, phi.y, rho.y, z, x);
-                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, x, y);
+                    longArc(ctx, c.y, pzy, h, phi.y, rho.y, n.z, n.x);
+                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, n.x, n.y);
                     smallArc(ctx, center, pyz, r, ayz, azy);
                     ctx.closePath();
                     ctx.fill();
                 } else if (m.y.z > 0) {
                     ctx.moveTo(pxz.x, pxz.y);
                     ctx.beginPath();
-                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, x, y);
-                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, y, z);
+                    longArc(ctx, c.z, pxz, h, phi.z, rho.z, n.x, n.y);
+                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, n.y, n.z);
                     smallArc(ctx, center, pzx, r, azx, axz);
                     ctx.closePath();
                     ctx.fill();
                 } else if (m.z.z > 0) {
                     ctx.moveTo(pyx.x, pyx.y);
                     ctx.beginPath();
-                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, y, z);
-                    longArc(ctx, c.y, pzy, h, phi.y, rho.y, z, x);
+                    longArc(ctx, c.x, pyx, h, phi.x, rho.x, n.y, n.z);
+                    longArc(ctx, c.y, pzy, h, phi.y, rho.y, n.z, n.x);
                     smallArc(ctx, center, pxy, r, axy, ayx);
                     ctx.closePath();
                     ctx.fill();

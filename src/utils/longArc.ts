@@ -7,8 +7,8 @@ import translate from './translate';
 export default (ctx: CanvasRenderingContext2D, center: IVector, context: IVector, r: number, a: number, b: number, u: IVector, v: IVector): IVector => {
     const angle = b - a;
     const accuracy = Math.PI / 16;
-    const steps = Math.abs(Math.ceil(angle / accuracy));
-    // steps = 8;
+    let steps = Math.abs(Math.ceil(angle / accuracy));
+    steps = 10;
     const mhu = angle / steps;
 
     let phi = a;
