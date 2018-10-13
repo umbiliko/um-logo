@@ -1,4 +1,4 @@
-import pad from './utils/pad';
+import pad from 'src/utils/pad';
 
 class Color {
 

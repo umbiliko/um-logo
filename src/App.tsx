@@ -1,6 +1,7 @@
 import * as React from 'react';
+import CanvasSphere from 'src/components/CanvasSphere';
+import Logo from 'src/components/Logo';
 import './App.css';
-import Logo from './Logo';
 import logo from './logo.svg';
 
 class App extends React.Component {
@@ -13,6 +14,7 @@ class App extends React.Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
+        <CanvasSphere center={{ x: radio, y: radio, z: 0 }} radio={radio} split={10} />
         <Logo center={{ x: radio, y: radio, z: 0 }} radio={radio} split={10} />
       </div>
     );

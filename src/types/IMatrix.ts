@@ -1,4 +1,4 @@
-import IVector from './IVector';
+import IVector from 'src/types/IVector';
 
 interface IMatrix {
     x: IVector;

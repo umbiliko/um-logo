@@ -1,17 +1,18 @@
 import * as React from 'react';
+import longArc from 'src/components/painting/longArc';
+import smallArc from 'src/components/painting/smallArc';
+import { ordinalToVector } from 'src/selectors';
+import { IMatrix, IVector, quadrant } from 'src/types';
+import angle from 'src/utils/angle';
+import circlePlot from 'src/utils/circlePlot';
+import plot from 'src/utils/plot';
+import rotate from 'src/utils/rotate';
+import rotateX from 'src/utils/rotateX';
+import rotateY from 'src/utils/rotateY';
+import rotateZ from 'src/utils/rotateZ';
+import splot from 'src/utils/splot';
+import translate from 'src/utils/translate';
 import Color from './Color';
-import { IMatrix, IVector } from './types';
-import angle from './utils/angle';
-import circlePlot from './utils/circlePlot';
-import longArc from './utils/longArc';
-import plot from './utils/plot';
-import rotate from './utils/rotate';
-import rotateX from './utils/rotateX';
-import rotateY from './utils/rotateY';
-import rotateZ from './utils/rotateZ';
-import smallArc from './utils/smallArc';
-import splot from './utils/splot';
-import translate from './utils/translate';
 
 interface ILogoProps {
     center?: IVector;
@@ -158,15 +159,10 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
         // ctx.lineCap = 'round';
         ctx.lineJoin = 'round';
 
-        for (let i = 0; i < 8; i++) {
+        for (let q: quadrant = 0; q < 8; q++) {
             
-            const q = 7 - i;
             // tslint:disable:no-bitwise
-            const v: IVector = {
-                x: ((q << 1) & 2) - 1,
-                y: (q & 2) - 1,
-                z: ((q >> 1) & 2) - 1
-            };
+            const v = ordinalToVector(q as quadrant);
 
             const n: IMatrix = {
                 x: plot(matrix.x, v.x),
@@ -187,7 +183,7 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
                 continue;
             }
 
-            color = new Color(colors[i]);
+            color = new Color(colors[q]);
             
             if (opacity >= 0 && opacity < 1) {
                 color.opacity = opacity;

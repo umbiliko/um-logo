@@ -1,8 +1,8 @@
 import epsilon from 'src/constants/epsilon';
 import { IVector } from 'src/types';
-import calcControl from './calcControl';
-import circlePlot from './circlePlot';
-import translate from './translate';
+import calcControl from 'src/utils/calcControl';
+import circlePlot from 'src/utils/circlePlot';
+import translate from 'src/utils/translate';
 
 export default (ctx: CanvasRenderingContext2D, center: IVector, context: IVector, r: number, a: number, b: number): IVector => {
     const angle = b - a;
