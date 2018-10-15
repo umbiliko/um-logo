@@ -1,5 +1,5 @@
 import IPoint from "./Ipoint";
 
-type Path = Array<IPoint>;
+type Path = IPoint[];
 
 export default Path;

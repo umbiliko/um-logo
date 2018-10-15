@@ -24,6 +24,16 @@ class SvgGQuadrant extends React.Component<IQuadrantProps, IQuadrantState> {
     constructor(props: IQuadrantProps) {
         super(props);
     }
+
+    public render() {
+        const { ordinal } = this.state;
+
+        this.update();
+
+        return (
+            <g>{ordinal}</g>
+        );
+    }
     
     private calc(next: Partial<IQuadrantState>)  {
     }
@@ -70,14 +80,6 @@ class SvgGQuadrant extends React.Component<IQuadrantProps, IQuadrantState> {
         this.calc(next);
         
         this.setState({ ...this.state, ...next });
-    }
-
-    public render() {
-        const { ordinal } = this.state;
-
-        return (
-            <g></g>
-        );
     }
 }
 

@@ -159,15 +159,15 @@ const moveTo = (path: Path, x: number, y: number) => {
 
 
 const arc = (path: Path, center: IVector, context: IVector, r: number, a: number, b: number): IVector => {
-    const angle = b - a;
+    const ang = b - a;
     const accuracy = Math.PI / 16;
-    const steps = Math.abs(Math.ceil(angle / accuracy));
+    const steps = Math.abs(Math.ceil(ang / accuracy));
 
     if (steps === 0) {
         return context;
     }
 
-    const mhu = angle / steps;
+    const mhu = ang / steps;
     let phi = a;
 
     const eps = mhu < 0 ? -epsilon : epsilon;
@@ -192,11 +192,11 @@ const arc = (path: Path, center: IVector, context: IVector, r: number, a: number
 };
 
 const longArc = (path: Path, center: IVector, context: IVector, r: number, a: number, b: number, u: IVector, v: IVector): IVector => {
-    const angle = b - a;
+    const ang = b - a;
     const accuracy = Math.PI / 16;
-    let steps = Math.abs(Math.ceil(angle / accuracy));
+    let steps = Math.abs(Math.ceil(ang / accuracy));
     steps = 10;
-    const mhu = angle / steps;
+    const mhu = ang / steps;
 
     let phi = a;
     
@@ -207,7 +207,8 @@ const longArc = (path: Path, center: IVector, context: IVector, r: number, a: nu
 
         const control = calcControl(context,
                 translate(center, splot(phi + epsilon, r, u, v)),
-                translate(center, splot(rho - epsilon, r, u, v)), ending);
+                translate(center, splot(rho - epsilon, r, u, v)),
+                ending);
 
         path.push(control);
         path.push(ending);

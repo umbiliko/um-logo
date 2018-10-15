@@ -11,7 +11,7 @@ interface IQuadrantProps {
     matrix: IMatrix;
     opacity: number;
     ordinal: quadrant;
-    path: Array<IPoint>;
+    path: IPoint[];
     split: number;
     radio: number;
 }

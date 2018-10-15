@@ -1,4 +1,4 @@
 // [r,g, b, a]
-type Color = Array<number>;
+type Color = number[];
 
 export default Color;
