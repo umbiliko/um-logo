@@ -1,4 +1,4 @@
-import IMatrix from './IMatrix';
+import { IMatrix } from 'src/types';
 
 interface IRootState {
     logo: {

@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import epsilon from 'src/constants/epsilon';
-import { IMatrix, IQuadrantProps, IVector, Path } from 'src/types';
+import { IMatrix, IQuadrantProps, IVector, Path2D } from 'src/types';
 import calcControl from 'src/utils/calcControl';
 import circlePlot from 'src/utils/circlePlot';
 import angle from 'src/utils/angle';
@@ -11,11 +11,11 @@ import getQuadrant from './getQuadrant';
 import getQuadrantMatrix from './getQuadrantMatrix';
 import getQuadrantNormal from './getQuadrantNormal';
 
-const getQuadrantPath = createSelector([getQuadrant, getQuadrantMatrix, getQuadrantNormal], (quadrant: IQuadrantProps, matrix: IMatrix, normal: IMatrix): Path => {
+const getQuadrantPath = createSelector([getQuadrant, getQuadrantMatrix, getQuadrantNormal], (quadrant: IQuadrantProps, matrix: IMatrix, normal: IMatrix): Path2D => {
     const { center, height: height, radio, split } = quadrant;
     const m = matrix;
     // const { x, y, z } = matrix;
-    const path: Path = [];
+    const path: Path2D = [];
 
     const mhu = Math.asin(split / radio);
 
@@ -153,12 +153,12 @@ const getQuadrantPath = createSelector([getQuadrant, getQuadrantMatrix, getQuadr
 
 export default getQuadrantPath;
 
-const moveTo = (path: Path, x: number, y: number) => {
+const moveTo = (path: Path2D, x: number, y: number) => {
     path.push({ x, y});
 }
 
 
-const arc = (path: Path, center: IVector, context: IVector, r: number, a: number, b: number): IVector => {
+const arc = (path: Path2D, center: IVector, context: IVector, r: number, a: number, b: number): IVector => {
     const ang = b - a;
     const accuracy = Math.PI / 16;
     const steps = Math.abs(Math.ceil(ang / accuracy));
@@ -191,7 +191,7 @@ const arc = (path: Path, center: IVector, context: IVector, r: number, a: number
     return context;
 };
 
-const longArc = (path: Path, center: IVector, context: IVector, r: number, a: number, b: number, u: IVector, v: IVector): IVector => {
+const longArc = (path: Path2D, center: IVector, context: IVector, r: number, a: number, b: number, u: IVector, v: IVector): IVector => {
     const ang = b - a;
     const accuracy = Math.PI / 16;
     let steps = Math.abs(Math.ceil(ang / accuracy));
@@ -220,7 +220,7 @@ const longArc = (path: Path, center: IVector, context: IVector, r: number, a: nu
     return context;
 };
 
-const smallArc = (path: Path, center: IVector, context: IVector, r: number, a: number, b: number): IVector | null => {
+const smallArc = (path: Path2D, center: IVector, context: IVector, r: number, a: number, b: number): IVector | null => {
     if (a === b) {
         return null;
     }

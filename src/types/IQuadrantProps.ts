@@ -1,7 +1,4 @@
-import quadrant from './quadrant';
-import IMatrix from './IMatrix';
-import IPoint from './Ipoint';
-import IVector from './IVector';
+import { IMatrix, IPoint, IVector, quadrant } from 'src/types';
 
 interface IQuadrantProps {
     alpha: number;

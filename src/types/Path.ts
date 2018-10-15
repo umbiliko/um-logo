@@ -1,5 +1,5 @@
-import IPoint from "./Ipoint";
+import { Identifier } from 'src/types';
 
-type Path = IPoint[];
+type Path = Identifier[];
 
 export default Path;
