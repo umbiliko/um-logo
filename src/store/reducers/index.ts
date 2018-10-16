@@ -1,24 +1,22 @@
-import { GEOMETRY_REFLECT_3D_MATRIX, GEOMETRY_ROTATE_3D_MATRIX, GEOMETRY_TRANSLATE_3D_MATRIX } from 'src/actions/types';
+import { CLEAR } from 'src/actions/types';
+import { State } from 'src/types';
 import actions from 'src/types/actions';
-import { IState } from 'src/types';
-import $reflect from './reflect';
-import $rotate from './rotate';
-import $translate from './translate';
+import $clear from './clear';
+import arithmetic from './arithmetic';
+import geometric from './arithmetic';
 
-export default (state: IState, action: actions[keyof actions]): IState => {
+export default (state: State, action: actions[keyof actions]): State => {
 
     const { path } = action;
 
     switch (action.type) {
+        case CLEAR:
+            return $clear(path, state);
 
-        case GEOMETRY_REFLECT_3D_MATRIX:
-            return $reflect(path, state, action.vector);
-
-        case GEOMETRY_ROTATE_3D_MATRIX:
-            return $rotate(path, state, action.vector);
-
-        case GEOMETRY_TRANSLATE_3D_MATRIX:
-            return $translate(path, state, action.vector);
+        default:
+            state = arithmetic(state, action as any);
+            state = geometric(state, action as any);
+            break;
     }
 
     return state;

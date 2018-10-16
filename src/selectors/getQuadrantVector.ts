@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
 import getQuadrant from './getQuadrant';
-import { IQuadrantProps, IVector } from 'src/types';
+import { IQuadrantProps, Vector } from 'src/types';
 
-const getQuadrantVector = createSelector([getQuadrant], (quadrant: IQuadrantProps): IVector => {
+const getQuadrantVector = createSelector([getQuadrant], (quadrant: IQuadrantProps): Vector => {
     const { ordinal } = quadrant;
     const i = 7 - ordinal;
-    const vector: IVector = {
+    const vector: Vector = {
         // tslint:disable:no-bitwise
         x: ((i << 1) & 2) - 1,
         y: (i & 2) - 1,

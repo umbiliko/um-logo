@@ -1,6 +1,6 @@
-import { IRootState } from 'src/types';
+import { RootState } from 'src/types';
 
-interface IState extends IRootState {
+interface IState extends RootState {
     [key: string]: any;
 }
 

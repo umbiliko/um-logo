@@ -1,6 +1,6 @@
-import { IQuadrantProps, IRootState } from 'src/types';
+import { IQuadrantProps, RootState } from 'src/types';
 
-const getQuadrant = (state: IRootState, props: IQuadrantProps) => {
+const getQuadrant = (state: RootState, props: IQuadrantProps) => {
     const { ordinal } = props;
     const { logo: { sphere: { alpha, matrix, opacity, quadrants: { [ordinal]: quadrant }, radio, split } } }  = state;
     const height = Math.sqrt(radio * radio - split * split);

@@ -1,7 +1,7 @@
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 import arc from './arc';
 
-export default (ctx: CanvasRenderingContext2D, center: IVector, context: IVector, r: number, a: number, b: number): IVector | null => {
+export default (ctx: CanvasRenderingContext2D, center: Vector, context: Vector, r: number, a: number, b: number): Vector | null => {
     if (a === b) {
         return null;
     }

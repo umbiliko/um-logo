@@ -1,10 +1,10 @@
 import epsilon from 'src/constants/epsilon';
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 import calcControl from 'src/utils/calcControl';
 import circlePlot from 'src/utils/circlePlot';
 import translate from 'src/utils/translate';
 
-export default (ctx: CanvasRenderingContext2D, center: IVector, context: IVector, r: number, a: number, b: number): IVector => {
+export default (ctx: CanvasRenderingContext2D, center: Vector, context: Vector, r: number, a: number, b: number): Vector => {
     const angle = b - a;
     const accuracy = Math.PI / 16;
     const steps = Math.abs(Math.ceil(angle / accuracy));

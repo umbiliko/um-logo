@@ -1,10 +1,13 @@
 import * as React from 'react';
+import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 import longArc from 'src/components/painting/longArc';
 import smallArc from 'src/components/painting/smallArc';
 import { ordinalToVector } from 'src/selectors';
-import { IMatrix, IVector, quadrant } from 'src/types';
+import { Matrix, RootState, Vector, quadrant } from 'src/types';
 import angle from 'src/utils/angle';
 import circlePlot from 'src/utils/circlePlot';
+import { omit } from 'src/utils';
 import plot from 'src/utils/plot';
 import rotate from 'src/utils/rotate';
 import rotateX from 'src/utils/rotateX';
@@ -13,31 +16,33 @@ import rotateZ from 'src/utils/rotateZ';
 import splot from 'src/utils/splot';
 import translate from 'src/utils/translate';
 import Color from './Color';
+import * as GeometricActions from 'src/actions/geometric';
 
-interface ILogoProps {
-    center?: IVector;
+interface ICanvasSphereProps {
+    actions?: any;
+    center?: Vector;
     colors?: string[];
-    matrix?: IMatrix;
+    matrix?: Matrix;
     opacity?: number;
     radio?: number;
     split?: number;
 }
 
-interface ILogoState {
-    center: IVector;
+interface ICanvasSphereState {
+    center: Vector;
     colors: string[];
-    matrix: IMatrix;
+    matrix: Matrix;
     opacity: number;
     radio: number;
     split: number;
 }
 
-class Logo extends React.Component<ILogoProps, ILogoState> {
+export class CanvasSphere extends React.Component<ICanvasSphereProps, ICanvasSphereState> {
 
     private canvas: React.ReactNode;
     private ctx: CanvasRenderingContext2D | null;
 
-    constructor(props: ILogoProps) {
+    constructor(props: ICanvasSphereProps) {
         super(props);
 
         this.state = {
@@ -74,13 +79,13 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
         }
     }
 
-    public get center(): IVector {
+    public get center(): Vector {
         const { center: { x, y, z } } = this.state;
 
         return { x, y, z };
     }
     
-    public set center(value: IVector) {
+    public set center(value: Vector) {
         this.setState({ center: value });
     }
 
@@ -164,7 +169,7 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
             // tslint:disable:no-bitwise
             const v = ordinalToVector(q as quadrant);
 
-            const n: IMatrix = {
+            const n: Matrix = {
                 x: plot(matrix.x, v.x),
                 y: plot(matrix.y, v.y),
                 z: plot(matrix.z, v.z)
@@ -205,7 +210,7 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
 
             ctx.fillStyle = gradient;
 
-            const c: IMatrix = {
+            const c: Matrix = {
                 x: translate(center, plot(n.x, d)),
                 y: translate(center, plot(n.y, d)),
                 z: translate(center, plot(n.z, d))
@@ -371,5 +376,16 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
         return this.canvas;
     }
 }
+/*
+const mapStateToProps = (state: RootState): Pick<ICanvasSphereProps, 'matrix'> => {
+    return { matrix: state.logo.sphere.matrix };
+};
 
-export default Logo;
+const mapDispatchToProps = (dispatch: Dispatch): Pick<ICanvasSphereProps, 'actions'> => ({
+    actions: bindActionCreators(omit(GeometricActions, 'reflect'), dispatch)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(CanvasSphere);
+*/
+
+export default CanvasSphere;

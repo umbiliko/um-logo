@@ -1,7 +1,7 @@
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 import longArc from './longArc';
 
-export default (ctx: CanvasRenderingContext2D, center: IVector, context: IVector, r: number, u: IVector, v: IVector, color: string | CanvasGradient | CanvasPattern): IVector => {
+export default (ctx: CanvasRenderingContext2D, center: Vector, context: Vector, r: number, u: Vector, v: Vector, color: string | CanvasGradient | CanvasPattern): Vector => {
     let phi = 0;
     let rho = 2 * Math.PI;
 

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import longArc from 'src/components/painting/longArc';
 import smallArc from 'src/components/painting/smallArc';
-import { IMatrix, IVector } from 'src/types';
+import { Matrix, Vector } from 'src/types';
 import angle from 'src/utils/angle';
 import circlePlot from 'src/utils/circlePlot';
 import plot from 'src/utils/plot';
@@ -14,18 +14,18 @@ import translate from 'src/utils/translate';
 import Color from './Color';
 
 interface ILogoProps {
-    center?: IVector;
+    center?: Vector;
     colors?: string[];
-    matrix?: IMatrix;
+    matrix?: Matrix;
     opacity?: number;
     radio?: number;
     split?: number;
 }
 
 interface ILogoState {
-    center: IVector;
+    center: Vector;
     colors: string[];
-    matrix: IMatrix;
+    matrix: Matrix;
     opacity: number;
     radio: number;
     split: number;
@@ -73,13 +73,13 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
         }
     }
 
-    public get center(): IVector {
+    public get center(): Vector {
         const { center: { x, y, z } } = this.state;
 
         return { x, y, z };
     }
     
-    public set center(value: IVector) {
+    public set center(value: Vector) {
         this.setState({ center: value });
     }
 
@@ -162,13 +162,13 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
             
             const q = 7 - i;
             // tslint:disable:no-bitwise
-            const v: IVector = {
+            const v: Vector = {
                 x: ((q << 1) & 2) - 1,
                 y: (q & 2) - 1,
                 z: ((q >> 1) & 2) - 1
             };
 
-            const n: IMatrix = {
+            const n: Matrix = {
                 x: plot(matrix.x, v.x),
                 y: plot(matrix.y, v.y),
                 z: plot(matrix.z, v.z)
@@ -209,7 +209,7 @@ class Logo extends React.Component<ILogoProps, ILogoState> {
 
             ctx.fillStyle = gradient;
 
-            const c: IMatrix = {
+            const c: Matrix = {
                 x: translate(center, plot(n.x, d)),
                 y: translate(center, plot(n.y, d)),
                 z: translate(center, plot(n.z, d))

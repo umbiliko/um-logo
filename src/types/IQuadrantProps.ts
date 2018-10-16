@@ -1,11 +1,11 @@
-import { IMatrix, IPoint, IVector, quadrant } from 'src/types';
+import { Matrix, IPoint, Vector, quadrant } from 'src/types';
 
 interface IQuadrantProps {
     alpha: number;
-    center: IVector;
+    center: Vector;
     color: string;
     height: number;
-    matrix: IMatrix;
+    matrix: Matrix;
     opacity: number;
     ordinal: quadrant;
     path: IPoint[];

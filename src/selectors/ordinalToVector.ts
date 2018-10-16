@@ -1,6 +1,6 @@
-import { IVector, quadrant } from 'src/types';
+import { Vector, quadrant } from 'src/types';
 
-export default (ordinal: quadrant): IVector => {
+export default (ordinal: quadrant): Vector => {
     const i = 7 - ordinal;
     // tslint:disable:no-bitwise
     return {
