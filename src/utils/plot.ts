@@ -1,7 +1,7 @@
 
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 
-export default (u: IVector, r: number): IVector => ({
+export default (u: Vector, r: number): Vector => ({
     x: u.x * r,
     y: u.y * r,
     z: u.z * r

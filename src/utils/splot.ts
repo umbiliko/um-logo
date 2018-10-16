@@ -1,4 +1,4 @@
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 
 // To get a parametric equation follow this procedure.
 // 1. Let N be a unit normal vector for the plane.
@@ -8,7 +8,7 @@ import { IVector } from 'src/types';
 // 5. Let t be the paramter.
 // 6. A point P is on the circle if...
 // P = C + R cos(t) U + R sin(t) V
-export default (rho: number, r: number, u: IVector, v: IVector): IVector => {
+export default (rho: number, r: number, u: Vector, v: Vector): Vector => {
     const x = r * Math.cos(rho);
     const y = r * Math.sin(rho);
 

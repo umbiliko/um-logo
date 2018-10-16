@@ -1,6 +1,6 @@
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 
-export default (u: IVector, v: IVector, sin: number, cos: number): IVector => {
+export default (u: Vector, v: Vector, sin: number, cos: number): Vector => {
     const icos = 1 - cos;
 
     const { x: ux, y: uy, z: uz } = u;

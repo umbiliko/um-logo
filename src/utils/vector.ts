@@ -1,3 +1,3 @@
-import { IVector } from 'src/types';
+import { Vector } from 'src/types';
 
-export default (x: number, y: number, z: number): IVector => ({ x, y, z });
+export default (x: number, y: number, z: number): Vector => ({ x, y, z });

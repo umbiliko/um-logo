@@ -1,7 +1,9 @@
+// import { connect } from 'react-redux';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
 import { IQuadrantProps, IQuadrantState } from 'src/types';
 import { color, ordinalToVector } from 'src/selectors';
+
 
 class SvgGQuadrant extends React.Component<IQuadrantProps, IQuadrantState> {
 
