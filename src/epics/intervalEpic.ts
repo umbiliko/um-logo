@@ -21,7 +21,11 @@ const intervalEpic = (action$: ActionsObservable<Action<any>>, state: StateObser
             mapTo(startAction.callback),
             takeUntil(action$.pipe(
                 filter((stopAction: Action<any>) => isStop(stopAction, startAction.callback)),
+<<<<<<< HEAD
                 mapTo({ type: INCREMENT /*CLEAR*/, path: ['interval', startAction.callback.type ] }),
+=======
+                mapTo({ type: INCREMENT, path: ['interval', startAction.callback.type ] }),
+>>>>>>> a93b9e83685275009b5ff948e43d2733e045b126
             )
         ))
     )

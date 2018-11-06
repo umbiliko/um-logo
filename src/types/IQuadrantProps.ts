@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Matrix, Point, Vector, quadrant } from 'src/types';
+=======
+import { Matrix, IPoint, Vector, quadrant } from 'src/types';
+>>>>>>> a93b9e83685275009b5ff948e43d2733e045b126
 
 interface IQuadrantProps {
     alpha: number;

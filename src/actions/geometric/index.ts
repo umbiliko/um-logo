@@ -1,3 +1,3 @@
-export { default as reflection } from './reflection';
-export { default as rotation } from './rotation';
-export { default as translation } from './translation';
+export { default as reflect } from './reflect';
+export { default as rotate } from './rotate';
+export { default as translate } from './translate';
