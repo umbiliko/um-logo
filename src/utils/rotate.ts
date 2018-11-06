@@ -1,10 +1,10 @@
-import { Vector } from 'src/types';
+import { Point, Vector } from 'src/types';
 
-export default (u: Vector, v: Vector, sin: number, cos: number): Vector => {
+export default (point: Point, axis: Vector, sin: number, cos: number): Vector => {
     const icos = 1 - cos;
 
-    const { x: ux, y: uy, z: uz } = u;
-    const { x: vx, y: vy, z: vz } = v;
+    const { x: ux, y: uy, z: uz } = point;
+    const { x: vx, y: vy, z: vz } = axis;
 
     const uxx = ux * ux;
     const uyy = uy * uy;

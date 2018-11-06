@@ -1,6 +1,6 @@
-import { IPoint } from 'src/types';
+import { Point } from 'src/types';
 
-interface IVector extends IPoint {
+interface IVector extends Point {
     z: number;
 }
 

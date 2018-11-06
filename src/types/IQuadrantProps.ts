@@ -1,4 +1,4 @@
-import { Matrix, IPoint, Vector, quadrant } from 'src/types';
+import { Matrix, Point, Vector, quadrant } from 'src/types';
 
 interface IQuadrantProps {
     alpha: number;
@@ -8,7 +8,7 @@ interface IQuadrantProps {
     matrix: Matrix;
     opacity: number;
     ordinal: quadrant;
-    path: IPoint[];
+    path: Point[];
     split: number;
     radio: number;
 }

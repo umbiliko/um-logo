@@ -1,5 +1,5 @@
 {
-  "name": "um-logo",
+  "name": "@um/logo",
   "version": "0.1.0",
   "description": "Umbiliko logo library",
   "main": "lib/index.js",
@@ -18,7 +18,7 @@
     "rxjs": "^6.3.3"
   },
   "scripts": {
-    "start": "react-scripts-ts start",
+    "start": "react-scripts-ts start -p 6000",
     "build": "react-scripts-ts build",
     "test": "react-scripts-ts test --env=jsdom",
     "eject": "react-scripts-ts eject",

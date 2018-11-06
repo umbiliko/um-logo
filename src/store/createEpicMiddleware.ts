@@ -5,7 +5,7 @@ import { RootState } from 'src/types';
 
 let epicMiddleware: EpicMiddleware<Action<any>, Action<any>, RootState, any>;
 
-export function run() {
+export function start() {
     epicMiddleware.run(rootEpic);
 }
 

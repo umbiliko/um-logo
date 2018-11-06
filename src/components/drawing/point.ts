@@ -1,3 +1,3 @@
-import { IPoint } from 'src/types';
+import { Point } from 'src/types';
 
-export default (p: IPoint) => `${p.x},${p.y}`;
+export default (p: Point) => `${p.x},${p.y}`;

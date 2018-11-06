@@ -1,6 +1,6 @@
-import { IPoint } from 'src/types';
+import { Point } from 'src/types';
 
-export default (center: IPoint, point: IPoint): number => {
+export default (center: Point, point: Point): number => {
     const x = point.x - center.x;
     const y = point.y - center.y;
     let phi = Math.atan(Math.abs(x / y));

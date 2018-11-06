@@ -1,4 +1,4 @@
-import { IPoint } from 'src/types';
+import { Point } from 'src/types';
 import point from './point';
 
-export default (control: IPoint, ending: IPoint) => `Q${point(control)} ${point(ending)}`;
+export default (control: Point, ending: Point) => `Q${point(control)} ${point(ending)}`;

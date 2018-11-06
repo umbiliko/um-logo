@@ -1,7 +1,7 @@
-import Path from '../Path';
+import ArrayPath from '../ArrayPath';
 
 interface IChange {
-    path: Path;
+    path: ArrayPath;
 }
 
 export default IChange;

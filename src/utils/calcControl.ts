@@ -1,7 +1,7 @@
-import { IPoint, Vector } from 'src/types';
+import { Point, Vector } from 'src/types';
 
 // point where lines context-midA and midB-ending intersects
-export default (context: Vector, midA: IPoint, midB: IPoint, ending: Vector): Vector => {
+export default (context: Vector, midA: Point, midB: Point, ending: Vector): Vector => {
     
     const xa = (context.x - midA.x);
     const xb = (midB.x - ending.x);
