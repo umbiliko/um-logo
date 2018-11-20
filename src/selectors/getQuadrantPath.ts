@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import epsilon from 'src/constants/epsilon';
-import { Matrix, IQuadrantProps, Vector, Path2D } from 'src/types';
+import { Matrix, IQuadrantProps, Vector, Path2D } from 'src/typings';
 import calcControl from 'src/utils/calcControl';
 import circlePlot from 'src/utils/circlePlot';
 import angle from 'src/utils/angle';

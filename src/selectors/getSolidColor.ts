@@ -1,4 +1,4 @@
-import { Color } from 'src/types';
+import { Color } from 'src/typings';
 
 // color: #RGB, #RRGGBB, rgb(R, G, B), rgba(R, G, B, A)
 // opcity: -1 ... 1. negative: lighter, positive: darker

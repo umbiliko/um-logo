@@ -1,15 +1,23 @@
 {
-  "name": "@um/logo",
-  "version": "0.1.0",
-  "description": "Umbiliko logo library",
+  "name": "um-react-logo",
+  "version": "0.0.1",
+  "description": "User module logo",
   "main": "lib/index.js",
-  "private": true,
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/umbiliko/um-react-logo.git"
+  },
+  "bugs": {
+    "url": "https://github.com/umbiliko/um-react-logo/issues"
+  },
+  "homepage": "https://github.com/umbiliko/um-react-logo#readme",
   "dependencies": {
     "color": "^3.1.0",
     "react": "^16.7.0-alpha.0",
+    "react-dom": "^16.7.0-alpha.0",
     "react-dnd": "^5.0.0",
     "react-dnd-html5-backend": "^5.0.1",
-    "react-dom": "^16.7.0-alpha.0",
     "react-redux": "^5.0.7",
     "react-scripts-ts": "3.1.0",
     "redux": "^4.0.0",
@@ -33,7 +41,7 @@
     "@types/color": "^3.0.0",
     "@types/jest": "^23.3.5",
     "@types/node": "^10.11.7",
-    "@types/react": "^16.4.16",
+    "@types/react": "^16.7.3",
     "@types/react-dom": "^16.0.9",
     "@types/react-redux": "^6.0.9",
     "babel-core": "^6.26.3",

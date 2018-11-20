@@ -1,5 +1,5 @@
 import { CLEAR } from 'src/actions/types';
-import { State } from 'src/types';
+import { State } from 'src/typings';
 import actions from 'src/types/actions';
 import $clear from './clear';
 import arithmetic from './arithmetic';

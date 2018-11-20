@@ -1,4 +1,4 @@
-import { Point } from 'src/types';
+import { Point } from 'src/typings';
 import point from './point';
 import quadraticCurveTo from './quadraticCurveTo';
 

@@ -1,4 +1,4 @@
-import { Matrix } from 'src/types';
+import { Matrix } from 'src/typings';
 import isVector3D from './isVector3D';
 
 export default ({ x, y, z}: Matrix): boolean =>

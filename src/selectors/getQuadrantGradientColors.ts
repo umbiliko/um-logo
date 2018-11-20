@@ -1,7 +1,7 @@
 import * as Colour from 'color';
 import { createSelector } from 'reselect';
 import getQuadrant from './getQuadrant';
-import { Color, Gradient, IQuadrantProps } from 'src/types';
+import { Color, Gradient, IQuadrantProps } from 'src/typings';
 import getQuadrantSolidColor from './getQuadrantSolidColor';
 
 const getQuadrantCanvasGradient = createSelector([getQuadrant, getQuadrantSolidColor], (quadrant: IQuadrantProps, solidColor: Color): Gradient => {

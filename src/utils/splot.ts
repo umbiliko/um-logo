@@ -1,4 +1,4 @@
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 
 // To get a parametric equation follow this procedure.
 // 1. Let N be a unit normal vector for the plane.

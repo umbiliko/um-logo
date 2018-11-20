@@ -4,7 +4,7 @@ import { interval } from 'rxjs';
 import { filter, mapTo, takeUntil, switchMap } from 'rxjs/operators';
 import { INCREMENT } from 'src/actions/arithmetic/types';
 import { INTERVAL, _END } from 'src/actions/reactive/types';
-import { RootState } from 'src/types';
+import { RootState } from 'src/typings';
 import { Interval } from 'src/types/actions/reactive';
 
 const isStop = (stopAction: Action<string>, action: Action<string>): boolean =>

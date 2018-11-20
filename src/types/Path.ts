@@ -1,4 +1,4 @@
-import { Identifier } from 'src/types';
+import { Identifier } from 'src/typings';
 
 type Path = Identifier[];
 

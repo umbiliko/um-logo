@@ -1,11 +1,11 @@
 import { CLEAR } from './types';
 <<<<<<< HEAD
-import { ArrayPath } from 'src/types';
+import { ArrayPath } from 'src/typings';
 import actions from 'src/types/actions';
 
 export default (path: ArrayPath): actions[typeof CLEAR] => ({
 =======
-import { Path } from 'src/types';
+import { Path } from 'src/typings';
 import actions from 'src/types/actions';
 
 export default (path: Path): actions[typeof CLEAR] => ({

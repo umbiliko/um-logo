@@ -2,7 +2,7 @@
 import { delay, filter, mapTo, mergeMap } from 'rxjs/operators';
 import { Action } from 'redux';
 import { Epic, ActionsObservable, StateObservable } from 'redux-observable';
-import { RootState } from 'src/types';
+import { RootState } from 'src/typings';
 
 const pingEpic = (action$: ActionsObservable<Action<any>>, state: StateObservable<RootState>)/*: ActionsObservable<Action<any>>*/ => action$.pipe(
     filter((action: Action<any>) => action.type === 'PING'),

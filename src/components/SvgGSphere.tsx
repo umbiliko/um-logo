@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ISphereProps, ISphereState, quadrant } from 'src/types';
+import { ISphereProps, ISphereState, quadrant } from 'src/typings';
 import { range } from 'src/selectors';
 import SvgGQuadrant from './SvgGQuadrant';
 

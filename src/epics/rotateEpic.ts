@@ -3,7 +3,7 @@ import { delay, filter, mapTo, mergeMap } from 'rxjs/operators';
 import { Action } from 'redux';
 import { Epic, ActionsObservable, StateObservable } from 'redux-observable';
 import { ROTATION } from 'src/actions/geometric/types';
-import { RootState } from 'src/types';
+import { RootState } from 'src/typings';
 
 const rotateEpic /*: Epic<Action, IRootState>*/ = (action$: ActionsObservable<Action<any>>, state: StateObservable<RootState>)/*: ActionsObservable<Action<any>>*/ =>
     action$.pipe(

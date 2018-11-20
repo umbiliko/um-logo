@@ -1,10 +1,10 @@
 <<<<<<< HEAD
-import { Point, Vector } from 'src/types';
+import { Point, Vector } from 'src/typings';
 
 // point where lines context-midA and midB-ending intersects
 export default (context: Vector, midA: Point, midB: Point, ending: Vector): Vector => {
 =======
-import { IPoint, Vector } from 'src/types';
+import { IPoint, Vector } from 'src/typings';
 
 // point where lines context-midA and midB-ending intersects
 export default (context: Vector, midA: IPoint, midB: IPoint, ending: Vector): Vector => {

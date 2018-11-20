@@ -1,6 +1,6 @@
 import { REFLECTION, ROTATION, TRANSLATION } from 'src/actions/geometric/types';
 import actions from 'src/types/actions/geometric';
-import { State } from 'src/types';
+import { State } from 'src/typings';
 import $reflect from './reflect';
 import $rotate from './rotate';
 import $translate from './translate';

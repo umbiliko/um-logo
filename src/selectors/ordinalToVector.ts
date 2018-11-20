@@ -1,4 +1,4 @@
-import { Vector, quadrant } from 'src/types';
+import { Vector, quadrant } from 'src/typings';
 
 export default (ordinal: quadrant): Vector => {
     const i = 7 - ordinal;

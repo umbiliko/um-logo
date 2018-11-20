@@ -1,4 +1,4 @@
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 import normalize from './normalize';
 
 export default (u: Vector, cos: number, sin: number): Vector => normalize({

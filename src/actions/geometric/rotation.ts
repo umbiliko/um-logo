@@ -1,4 +1,4 @@
-import { ArrayPath, Vector } from 'src/types';
+import { ArrayPath, Vector } from 'src/typings';
 import { ROTATION } from './types';
 import Rotate from 'src/types/actions/geometric/Rotate';
 import { getIn, rotate, setIn } from 'src/utils';

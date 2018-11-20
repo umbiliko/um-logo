@@ -4,7 +4,7 @@ import { bindActionCreators, Dispatch } from 'redux';
 import longArc from 'src/components/painting/longArc';
 import smallArc from 'src/components/painting/smallArc';
 import { ordinalToVector } from 'src/selectors';
-import { Matrix, RootState, Vector, quadrant } from 'src/types';
+import { Matrix, RootState, Vector, quadrant } from 'src/typings';
 import angle from 'src/utils/angle';
 import circlePlot from 'src/utils/circlePlot';
 import { omit } from 'src/utils';

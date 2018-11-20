@@ -1,4 +1,4 @@
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 
 export default (u: Vector, v: Vector): Vector => ({
     x: u.x + v.x,

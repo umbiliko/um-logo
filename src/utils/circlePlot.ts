@@ -1,4 +1,4 @@
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 
 export default (phi: number, r: number): Vector => ({
     x: Math.sin(phi) * r,

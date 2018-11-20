@@ -1,5 +1,5 @@
 import epsilon from 'src/constants/epsilon';
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 import calcControl from 'src/utils/calcControl';
 import circlePlot from 'src/utils/circlePlot';
 import translate from 'src/utils/translate';

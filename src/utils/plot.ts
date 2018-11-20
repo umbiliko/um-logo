@@ -1,5 +1,5 @@
 
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 
 export default (u: Vector, r: number): Vector => ({
     x: u.x * r,

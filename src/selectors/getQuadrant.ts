@@ -1,4 +1,4 @@
-import { IQuadrantProps, RootState } from 'src/types';
+import { IQuadrantProps, RootState } from 'src/typings';
 
 const getQuadrant = (state: RootState, props: IQuadrantProps) => {
     const { ordinal } = props;

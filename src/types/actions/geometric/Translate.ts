@@ -1,5 +1,5 @@
 import { TRANSLATION } from 'src/actions/geometric/types';
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 import Change from '../Change';
 
 type Translate = Change & {

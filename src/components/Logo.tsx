@@ -1,7 +1,7 @@
 import * as React from 'react';
 import longArc from 'src/components/painting/longArc';
 import smallArc from 'src/components/painting/smallArc';
-import { Matrix, Vector } from 'src/types';
+import { Matrix, Vector } from 'src/typings';
 import angle from 'src/utils/angle';
 import circlePlot from 'src/utils/circlePlot';
 import plot from 'src/utils/plot';

@@ -1,7 +1,7 @@
 // import { connect } from 'react-redux';
 import * as React from 'react';
 import * as PropTypes from 'prop-types';
-import { IQuadrantProps, IQuadrantState } from 'src/types';
+import { IQuadrantProps, IQuadrantState } from 'src/typings';
 import { color, ordinalToVector } from 'src/selectors';
 
 

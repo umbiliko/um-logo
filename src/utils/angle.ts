@@ -1,4 +1,4 @@
-import { Point } from 'src/types';
+import { Point } from 'src/typings';
 
 export default (center: Point, point: Point): number => {
     const x = point.x - center.x;

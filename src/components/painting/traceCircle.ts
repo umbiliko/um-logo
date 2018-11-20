@@ -1,4 +1,4 @@
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 import translate from 'src/utils/translate';
 import arc from './arc';
 

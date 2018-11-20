@@ -1,9 +1,9 @@
 <<<<<<< HEAD
-import { Point, Vector } from 'src/types';
+import { Point, Vector } from 'src/typings';
 
 export default (point: Point, axis: Vector, sin: number, cos: number): Vector => {
 =======
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 
 export default (u: Vector, v: Vector, sin: number, cos: number): Vector => {
 >>>>>>> a93b9e83685275009b5ff948e43d2733e045b126

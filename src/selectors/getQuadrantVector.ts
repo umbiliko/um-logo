@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import getQuadrant from './getQuadrant';
-import { IQuadrantProps, Vector } from 'src/types';
+import { IQuadrantProps, Vector } from 'src/typings';
 
 const getQuadrantVector = createSelector([getQuadrant], (quadrant: IQuadrantProps): Vector => {
     const { ordinal } = quadrant;

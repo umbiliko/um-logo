@@ -1,11 +1,11 @@
 import { INCREMENT } from './types';
 <<<<<<< HEAD
-import { ArrayPath } from 'src/types';
+import { ArrayPath } from 'src/typings';
 import actions from 'src/types/actions/arithmetic';
 
 export default (path: ArrayPath, amount: number | undefined = undefined): actions[typeof INCREMENT] => ({
 =======
-import { Path } from 'src/types';
+import { Path } from 'src/typings';
 import actions from 'src/types/actions/arithmetic';
 
 export default (path: Path, amount: number | undefined = undefined): actions[typeof INCREMENT] => ({

@@ -1,4 +1,4 @@
-import { Matrix } from 'src/types';
+import { Matrix } from 'src/typings';
 
 interface IRootState {
     interval: {

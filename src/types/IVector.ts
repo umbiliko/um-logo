@@ -1,4 +1,4 @@
-import { Point } from 'src/types';
+import { Point } from 'src/typings';
 
 interface IVector extends Point {
     z: number;

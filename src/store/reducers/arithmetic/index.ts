@@ -1,6 +1,6 @@
 import { DECREMENT, INCREMENT } from 'src/actions/arithmetic/types';
 import actions from 'src/types/actions/arithmetic';
-import { State } from 'src/types';
+import { State } from 'src/typings';
 import $decrement from './decrement';
 import $increment from './increment';
 

@@ -1,4 +1,4 @@
-import { Vector } from 'src/types';
+import { Vector } from 'src/typings';
 import drawArc from './drawArc';
 
 export default (ctx: CanvasRenderingContext2D, center: Vector, r: number, color: string | CanvasGradient | CanvasPattern) =>

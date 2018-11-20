@@ -1,5 +1,5 @@
 import { Map, List } from 'immutable';
-import { ArrayPath, Identifier, State } from 'src/types';
+import { ArrayPath, Identifier, State } from 'src/typings';
 
 const setIn = (arrPath: ArrayPath, state: State | Map<Identifier, any> | List<any>, value: any): any => {
     
